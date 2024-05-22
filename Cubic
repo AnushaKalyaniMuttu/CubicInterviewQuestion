@@ -1,0 +1,18 @@
+package org.example;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        String version = "1.220.5-snapshot";
+        String[] subVersion = version.split("-");//1.220.5   snapshot
+        String versionNumber = subVersion[0]; //1.220.5
+        String[] subVersionNum = versionNumber.split("\\.");  // 1 220 5
+        Arrays.stream(subVersionNum).forEach(System.out::println);
+        String changeVersion = subVersionNum[subVersionNum.length - 1];//5
+        Integer updatedVersion = Integer.valueOf(changeVersion) + 1;//6
+        String firstString = versionNumber.substring(0,versionNumber.length() - 1);//1.220.
+        String finalValue = firstString + updatedVersion +"-"+ subVersion[1]; //1.220. 6 //
+        System.out.println(finalValue);
+    }
+}
